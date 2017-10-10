@@ -1,0 +1,32 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "The dependencies required for the CLI app Bamazon. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ulaura/Bamazon.git"
+  },
+  "keywords": [
+    "bamazon",
+    "mysql",
+    "sql",
+    "inquirer",
+    "command",
+    "line",
+    "commandline"
+  ],
+  "author": "Laura Unaeze",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ulaura/Bamazon/issues"
+  },
+  "homepage": "https://github.com/ulaura/Bamazon#readme",
+  "dependencies": {
+    "inquirer": "^3.3.0",
+    "mysql": "^2.15.0"
+  }
+}
