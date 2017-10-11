@@ -102,10 +102,21 @@ function buyProducts() {
 				//if the user asked for a larger quantity than what's available in stock
 				if (answers.productQuantity > res[j].stock_quantity) {
 					console.log("\n" + res[j].product_name + " >> Insufficient quantity!!");
+
+					console.log("");
+					
+					//run inquirer prompts again
+					buyProducts();
 				}
 
 				else {
-					
+					//get the total cost of what the user wants to purchase
+					var totalCost = res[j].price * answers.productQuantity;
+
+					console.log("\nYour order: " + res[j].product_name);
+					console.log("Quantity ordered: " + answers.productQuantity);
+					console.log("Unit price: " + res[j].price.toFixed(2));
+					console.log("Total cost: " + totalCost.toFixed(2));
 				}
 			}
 
