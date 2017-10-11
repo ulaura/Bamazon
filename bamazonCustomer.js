@@ -29,7 +29,10 @@ connection.connect(function(err) {
 
 	displayProducts();
 
-	connection.end(); 
+
+	
+
+	
 	
 });
 
@@ -44,7 +47,55 @@ function displayProducts() {
 		for (var i = 0; i < res.length; i++) {
 			console.log(res[i].item_id + " | " + res[i].product_name + " | " + res[i].price.toFixed(2));
 		}
+		console.log("");
 
+		buyProducts();
 	})
-}
 
+	connection.end(); 
+};
+
+//function to ask users what product they would like to buy
+//calling the function from within displayProducts() to force a synchronous display
+function buyProducts() {
+	inquirer.prompt([
+		{
+			name: "productChoice",
+			type: "input",
+			message: "What product would you like to buy? Please enter the corresponding item ID: ",
+
+			//checks if the user put in a number
+			validate: function(message) {
+				if (isNaN(message)) {
+					return console.log(" << Invalid Response. Please input a number.")
+				}
+				else {
+					return true;
+				}
+			}
+
+		},
+		{
+			name: "productQuantity",
+			type: "input",
+			message: "How much of that product would you like to buy? Please enter a number: ",
+
+			//checks if user put in a number
+			validate: function(message) {
+				if (isNaN(message)) {
+					return console.log(" << Invalid Response. Please input a number.")
+				}
+				else {
+					return true;
+				}
+			} 
+		}
+	])
+
+	//the promise <3 xoxo
+	.then(function(answers) {
+		//console.log(answers); //test
+		
+		
+	});
+};
