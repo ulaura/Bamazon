@@ -52,7 +52,7 @@ function displayProducts() {
 
 //function to ask users what product they would like to buy
 //calling the function from within displayProducts() to force a synchronous display
-//i.e. show the database and then go through inquirer prompts
+//i.e. show the products table from the database and then go through inquirer prompts
 function buyProducts() {
 	inquirer.prompt([
 		{
@@ -95,10 +95,18 @@ function buyProducts() {
 		//compares user's input from productChoice to to item_id in bamazon database
 		connection.query("SELECT * FROM products WHERE item_id=?", answers.productChoice, function (err, res) {
 			if (err) throw err;
+			//console.log(res); //test
+
+			//if the user enters a productChoice that doesn't match an item_id in the database
+			if (res.length === 0 ) {
+				console.log("\n The product you entered does not exist in the records.");
+
+				console.log("");
+
+				buyProducts();
+			}
 
 			for (var j = 0; j < res.length; j++) {
-				//console.log(res[j].product_name); //test
-
 				//if the user asked for a larger quantity than what's available in stock
 				if (answers.productQuantity > res[j].stock_quantity) {
 					console.log("\n" + res[j].product_name + " >> Insufficient quantity!!");
