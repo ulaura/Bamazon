@@ -23,37 +23,41 @@ Once the app is started you will be shown a pre-loaded list of products, their I
 
 You will be prompted with two questions asking what product you are interested in buying and the quantity you would like to have. Select the item you want by typing in the Item ID number and hitting enter. Choose the item quantity by typing in a number and hitting enter. 
 
-((Show screenshot of entering in product choice and quantity))
+![Choosing Product and Quantity](img2.png)
 
 - - -
 **NOTE:** 
 Choosing an Item ID number that isn't on the list will throw an error message and prompt you again to choose a product to buy.
 
-((Show product not in records message))
+![Error Product Nonexistent](img4.png)
 
 Also, choosing a quantity that exceeds what's in stock will throw an error message, followed by prompting you again to choose a product to buy.
 
-((Show insufficient quantity message))
+![Error Insufficient Quantity](img3.png)
 - - - 
 
 Once you have made your choices, the app will display the product you purchased, the quantity, the unit price, and your total cost.
 
 You will also see a message that the stock quantity for that item has been updated, followed by the product's new quantity. 
 
-((Show stock quantity update message.))
+![Stock Quantity Update](img5.png)
 
 
 From here, the app will prompt you again if you would like to make another purchase or not. Type `y` for "yes" or `n` for "no" and hit enter. 
 
 Selecting yes will restart the prompts from above asking what product you would like and how many. Selecting no will give you a goodbye message and end the program.
 
-((Show goodbye message)).
+![Goodbye Message](img5.png)
 
 ## Behind the Scenes
 The app is pulling all data on the products from the MySQL database "bamazon." The database contains one table called "products."
 
-((Show screenshot of database/table))
+![Bamazon Database](img6.png)
 
 Each time a user selects a product/quantity to purchase, the database updates the product's stock quantity.
 
-((Show screenshot of new stock quantity of an item))
+Product table before user buys any products...
+![Product Table Before](img7.png)
+
+Product table after user buys 3 drawing pencils and database updates...
+![Product Table After](img8.png)
