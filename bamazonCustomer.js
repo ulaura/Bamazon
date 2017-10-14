@@ -37,6 +37,7 @@ connection.connect(function(err) {
 function displayProducts() {
 	connection.query("SELECT * FROM products", function (err, res) {
 		if (err) throw err;
+
 		//console.log(res); //test
 
 		for (var i = 0; i < res.length; i++) {
@@ -95,6 +96,7 @@ function buyProducts() {
 		//compares user's input from productChoice to to item_id in bamazon database
 		connection.query("SELECT * FROM products WHERE item_id=?", answers.productChoice, function (err, res) {
 			if (err) throw err;
+
 			//console.log(res); //test
 
 			//if the user enters a productChoice that doesn't match an item_id in the database
@@ -125,6 +127,22 @@ function buyProducts() {
 					console.log("Quantity ordered: " + answers.productQuantity);
 					console.log("Unit price: " + res[j].price.toFixed(2));
 					console.log("Total cost: " + totalCost.toFixed(2));
+
+					var newQuantity = res[j].stock_quantity - answers.productQuantity;
+
+					connection.query("UPDATE products SET stock_quantity=? WHERE item_id=?", [newQuantity, answers.productChoice], function (err, res) {
+						if (err) throw err;
+					});
+
+					connection.query("SELECT * FROM products WHERE item_id=?", answers.productChoice, function (err, res) {
+						if (err) throw err;
+
+						for (var k = 0; k < res.length; k++) {
+							console.log("\nQuantity updated!");
+							console.log("New stock quantity for " + res[k].product_name + " >> " + res[k].stock_quantity);
+						}
+						
+					});
 				}
 			}
 
@@ -132,3 +150,5 @@ function buyProducts() {
 
 	});
 };
+
+

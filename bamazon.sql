@@ -27,5 +27,11 @@ VALUES ("bar soap", "Health and Beauty", 2.50, 20),
 ("sketchbook", "Art Supplies", 18.50, 30),
 ("drawing pencils", "Art Supplies", 7.50, 30);
 
-
+USE bamazon;
 SELECT * FROM products;
+
+UPDATE products 
+SET stock_quantity = stock_quantity - 4
+WHERE item_id = 1;
+
+SELECT * FROM prodcuts;
