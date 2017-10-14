@@ -111,6 +111,7 @@ function buyProducts() {
 				//if the user asked for a larger quantity than what's available in stock
 				if (answers.productQuantity > res[j].stock_quantity) {
 					console.log("\n" + res[j].product_name + " >> Insufficient quantity!!");
+					console.log("Current stock quantity: " + res[j].stock_quantity);
 
 					console.log("");
 					
