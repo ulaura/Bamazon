@@ -3,7 +3,7 @@
 ## About
 This command line interface app allows users to purchase items off of a fictitious store called Bamazon. The app utilizes Node.js and MySQL.
 
-### Dependencies
+Dependencies
 * Inquirer NPM
 * MySQL NPM
 
