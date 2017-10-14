@@ -3,14 +3,14 @@
 ## About
 This command line interface app allows users to purchase items off of a fictitious store called Bamazon. The app utilizes Node.js and MySQL.
 
-Dependencies
+Dependencies:
 * Inquirer NPM
 * MySQL NPM
 
 ## Getting Started
 * First, download the repository.
 
-* Next, using the command line, direct to where the folder Bamazon was downloaded to on your system.
+* Next, using the command line, direct to where the folder Bamazon was downloaded on your system.
 
 * From here, start the app by typing into the command line `node bamazonCustomer.js` and hit enter.
 
@@ -43,14 +43,14 @@ You will also see a message that the stock quantity for that item has been updat
 ((Show stock quantity update message.))
 
 
-From here, the app will prompt you again if you would like to make another purchase or not. Type `y` for "yes" or `N` for "no" and hit enter. 
+From here, the app will prompt you again if you would like to make another purchase or not. Type `y` for "yes" or `n` for "no" and hit enter. 
 
 Selecting yes will restart the prompts from above asking what product you would like and how many. Selecting no will give you a goodbye message and end the program.
 
 ((Show goodbye message)).
 
 ## Behind the Scenes
-The app is pulling all data on the products from the MySQL database "bamazon." 
+The app is pulling all data on the products from the MySQL database "bamazon." The database contains one table called "products."
 
 ((Show screenshot of database/table))
 
