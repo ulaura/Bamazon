@@ -40,7 +40,8 @@ function displayProducts() {
 		//console.log(res); //test
 
 		for (var i = 0; i < res.length; i++) {
-			console.log(res[i].item_id + " | " + res[i].product_name + " | " + res[i].price.toFixed(2));
+			console.log("Item ID: " + res[i].item_id + " | Product Name: " + res[i].product_name + " | Price: " + res[i].price.toFixed(2));
+			console.log("");
 		}
 		console.log("");
 
