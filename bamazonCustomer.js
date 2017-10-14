@@ -37,7 +37,6 @@ connection.connect(function(err) {
 function displayProducts() {
 	connection.query("SELECT * FROM products", function (err, res) {
 		if (err) throw err;
-
 		//console.log(res); //test
 
 		for (var i = 0; i < res.length; i++) {
@@ -96,7 +95,6 @@ function buyProducts() {
 		//compares user's input from productChoice to to item_id in bamazon database
 		connection.query("SELECT * FROM products WHERE item_id=?", answers.productChoice, function (err, res) {
 			if (err) throw err;
-
 			//console.log(res); //test
 
 			//if the user enters a productChoice that doesn't match an item_id in the database
@@ -139,10 +137,14 @@ function buyProducts() {
 
 						for (var k = 0; k < res.length; k++) {
 							console.log("\nQuantity updated!");
-							console.log("New stock quantity for " + res[k].product_name + " >> " + res[k].stock_quantity);
+							console.log("New stock quantity for " + res[k].product_name + " >> " + res[k].stock_quantity);	
+							console.log("");
+
+							buyAgain();
 						}
 						
 					});
+
 				}
 			}
 
@@ -151,4 +153,26 @@ function buyProducts() {
 	});
 };
 
+//function to ask user if they want to buy another product or end the program
+//called within promise of buyProducts() so prompt appears in desired order
+function buyAgain() {
+	inquirer.prompt([
+		{
+			name: "redo",
+			type: "confirm",  //returns boolean response
+			message: "Would you like to buy another product?"
+		}
+	])
+	.then(function(answers) {
+		//console.log(answers);  //test
+ 
+		if (answers.redo) {
+			buyProducts();
+		}
 
+		else {
+			console.log("Thank you for shopping at Bamazon! Goodbye.");
+			connection.end();
+		}
+	});
+}
