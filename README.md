@@ -19,7 +19,7 @@ Dependencies:
 ## Using the App
 Once the app is started you will be shown a pre-loaded list of products, their Item IDs, and their prices.
 
-((Show screenshot of product display))
+![Product List](img1.png)
 
 You will be prompted with two questions asking what product you are interested in buying and the quantity you would like to have. Select the item you want by typing in the Item ID number and hitting enter. Choose the item quantity by typing in a number and hitting enter. 
 
